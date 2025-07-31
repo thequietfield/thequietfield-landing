@@ -7,20 +7,43 @@
   <style>
     body {
       background-color: #000;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 100px 20px;
+      color: #e0e0e0;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    a {
-      color: #00ffcc;
-      font-size: 1.5rem;
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    a.button {
+      background-color: #444;
+      color: #fff;
+      padding: 12px 24px;
       text-decoration: none;
+      font-size: 1em;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    a.button:hover {
+      background-color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to The Quiet Field</h1>
-  <p><a href="vol2.html">Enter Pulse Volume 2</a></p>
+  <h1>The Quiet Field</h1>
+  <p>Resonance lives in silence. This is your signal.</p>
+  <a href="/vol2" class="button">Enter Volume II</a>
 </body>
 </html>
