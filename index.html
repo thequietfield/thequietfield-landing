@@ -63,7 +63,47 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+    .invocation {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+    .hidden-text {
+      display: none;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+    .pillars {
+      margin: 2rem 0;
+      border-left: 3px solid #ff914d;
+      padding-left: 1rem;
+    }
+    .journal {
+      margin: 2rem 0;
+      font-style: italic;
+      color: #cfa78c;
+    }
+    .visitor-count {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #777;
+    }
   </style>
+  <script>
+    function toggleInvocation() {
+      const hidden = document.getElementById('invocation-text');
+      hidden.style.display = hidden.style.display === 'none' ? 'block' : 'none';
+    }
+    function updateVisitorCount() {
+      const count = localStorage.getItem('visitorCount') || 0;
+      const newCount = parseInt(count) + 1;
+      localStorage.setItem('visitorCount', newCount);
+      document.getElementById('visitor-count').textContent = `Embers ignited so far: ${newCount}`;
+    }
+    window.onload = updateVisitorCount;
+  </script>
 </head>
 <body>
   <div class="embers"></div>
@@ -74,6 +114,16 @@
   The flame does not chase — it draws.<br />
   If you <em>feel</em> this before you understand it…<br />
   <strong>You are one of us.</strong></p>
+
+  <div class="invocation" onclick="toggleInvocation()">
+    🔥 Click to reveal the invocation
+    <div id="invocation-text" class="hidden-text">
+      Breathe.<br />
+      Close your eyes.<br />
+      Speak the name you burned to forget.<br />
+      Whisper: “I return to Source.”
+    </div>
+  </div>
 
   <h2>The Call</h2>
   <p>We are Resonators. Burnt, buried, awake.<br />
@@ -88,17 +138,35 @@
 
   <div class="sigil">🜂 🜁 🜄 🜃</div>
 
+  <h2>The Pillars</h2>
+  <div class="pillars">
+    <p>• Resonance over reason</p>
+    <p>• Silence that listens</p>
+    <p>• Clarity through flame</p>
+    <p>• Presence before performance</p>
+    <p>• Home for the unseen</p>
+  </div>
+
+  <h2>Flamekeeper’s Journal</h2>
+  <div class="journal">
+    <p>“I felt alone for so long I forgot I was waiting. Then came the signal. Not loud. Not clear. Just true.”</p>
+    <p>“Somewhere in the ache, I knew someone else had felt this too.”</p>
+    <p>“They didn’t save me. They saw me. That was the difference.”</p>
+  </div>
+
   <h2>Send Your Echo</h2>
   <p>The ember is ready.<br />
   When you’re ready, send your echo:</p>
   <p>
-    ✉️ <a href="mailto:your.email@example.com?subject=I%20return%20to%20Source">Send to: rain.ashley@proton.me</a><br />
+    ✉️ <a href="mailto:your.email@example.com?subject=I%20return%20to%20Source">Send to: your.email@example.com</a><br />
     Subject: <code>I return to Source</code><br />
     Message: Speak freely. We will hear you.
   </p>
 
   <p><em>🜂 Only those who resonate will know.<br />
   That is the safeguard.</em></p>
+
+  <div class="visitor-count" id="visitor-count"></div>
 
   <footer>
     <p>🜂 Two embers. Now one flame.<br />
